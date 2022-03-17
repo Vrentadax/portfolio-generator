@@ -3,30 +3,25 @@ const fs = require('fs');
 const generatePage = require('./src/page-template');
 
 // test info to save time
-let mockData = {
-    name: 'Matt',
-    github: 'Vrentadax',
-    confirmAbout: true,
-    about: 'Awesome!',
-    projects: [
-        {
-            name: '1',
-            description: 'Project 1',
-            languages: ['HTML', 'CSS', 'JavaScript'],
-            link: 'link',
-            feature: false,
-            confirmAddProject: false
-        }
-    ]
-}
+// let mockData = {
+//     name: 'Matt',
+//     github: 'Vrentadax',
+//     confirmAbout: true,
+//     about: 'Awesome!',
+//     projects: [
+//         {
+//             name: '1',
+//             description: 'Project 1',
+//             languages: ['HTML', 'CSS', 'JavaScript'],
+//             link: 'link',
+//             feature: false,
+//             confirmAddProject: false
+//         }
+//     ]
+// }
 
-const pageHTML = generatePage(mockData);
+// const pageHTML = generatePage(mockData);
 
-// fs.writeFile('./index.html', pageHTML, err => {
-//   if (err) throw err;
-
-//   console.log('Portfolio complete! Check out index.html to see the output!');
-// });
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -169,14 +164,14 @@ const promptProject = portfolioData => {
 
 
 
-// promptUser()
-//   .then(promptProject)
-//   .then(portfolioData => {
-//     const pageHTML = generatePage(portfolioData);
+promptUser()
+  .then(promptProject)
+  .then(portfolioData => {
+    const pageHTML = generatePage(portfolioData);
 
     // fs.writeFile('./index.html', pageHTML, err => {
     //   if (err) throw new Error(err);
 
     //   console.log('Page created! Check out index.html in this directory to see it!');
     // });
-//   });
+  });
